@@ -1,0 +1,8 @@
+{
+    "[javaScript]":{
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "emmet.includeLanguages": {
+        "javaScript" : "javascriptreact"
+    }
+}
