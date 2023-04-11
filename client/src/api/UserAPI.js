@@ -15,7 +15,7 @@ function UserAPI(token) {
                     })  
                     setIsLogged(true)
                     res.data.role ===1 ? setIsAdmin(true): setIsAdmin(false)
-                    console.log(res)   
+                    setAppointment(res.data.cart)
                 }catch(err){
                     alert(err.response.data.msg)
                 }
@@ -34,6 +34,9 @@ function UserAPI(token) {
 
         if(check){
             setAppointment([...appoint, {...doctor, available: 1}])
+            await axios.patch('/user/addAppointment', {cart: [...appoint, {...doctor, available: 1}]}, {
+                headers: {Authorization: token}
+            })
         }else{
             alert("The doctor has been appointed for you.")
         }
@@ -44,6 +47,7 @@ function UserAPI(token) {
   return {
     isLogged: [isLogged, setIsLogged],
     isAdmin: [isAdmin, setIsAdmin],
+    appoint: [appoint, setAppointment],
     addAppointment: addAppointment
   }
 }

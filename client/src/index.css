@@ -32,3 +32,5 @@ button{
 @import url("./components/mainpages/detailDoctor/detailDoctor.css");
 
 @import url("./components/mainpages/auth/login.css");
+
+@import url("./components/mainpages/cart/cart.css");

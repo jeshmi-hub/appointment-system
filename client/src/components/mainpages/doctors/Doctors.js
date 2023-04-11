@@ -15,7 +15,7 @@ function Doctors() {
       {
         doctors.map(doctor=>{
           return <DoctorItem key={doctor._id} doctor={doctor} isAdmin={isAdmin}/>
-         
+          
         })
       }
     </div>

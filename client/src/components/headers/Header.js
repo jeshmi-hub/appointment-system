@@ -7,12 +7,12 @@ function Header() {
  const state = useContext(GlobalState)
  const [isLogged, setIsLogged] = state.userAPI.isLogged
  const [isAdmin, setIsAdmin] = state.userAPI.isAdmin
+ const [appoint] = state.userAPI.appoint
 
  const logoutUser = async() =>{
     await axios.get('/user/logout')
     localStorage.clear()
-    setIsAdmin(false)
-    setIsLogged(false)
+    window.location.href = "/";
  }
 
  const adminRouter = () =>{
@@ -58,7 +58,7 @@ function Header() {
         {
             isAdmin ? '' 
             :<div className="cart-icon">
-            <span>0</span>
+            <span>{appoint.length}</span>
             <Link to="/appoint"><i class="fa-solid fa-user-doctor"></i></Link>
             </div>
         }

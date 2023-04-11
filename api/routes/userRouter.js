@@ -11,4 +11,6 @@ router.get('/refresh_token', userCtrl.refreshToken)
 router.get('/infor', auth,  userCtrl.getUser)
 router.get('/allUsers', auth, authAdmin, userCtrl.getAllUsers)
 
+router.patch('/addAppointment', auth, userCtrl.addAppointment)
+
 module.exports = router

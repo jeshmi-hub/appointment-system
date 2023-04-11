@@ -115,6 +115,21 @@ const userCtrl = {
         }catch(err){
             res.status(404).json({message:err.message})
         }
+    },
+    addAppointment: async(req,res)=>{
+        try{
+            const user = await Users.findById(req.user.id)
+            if(!user) return res.status(400).json({msg: "User does not exist"})
+
+            await Users.findByIdAndUpdate({_id: req.user.id}, {
+                cart : req.body.cart
+            })
+            return res.json({msg: "Added to Cart"})
+
+        }catch(err){
+            return res.status(500).json({msg: err.message})
+
+        }
     }
 }
 

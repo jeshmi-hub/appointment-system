@@ -36,7 +36,7 @@ function DetailDoctor() {
         <p>Available: {detailDoctor.available}</p>
         
         
-        <Link to="/cart" className="cart">Appoint</Link>
+        <Link to="/appoint" className="cart">Appoint</Link>
       </div>
     </div>
 
