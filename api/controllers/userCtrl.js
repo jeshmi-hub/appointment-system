@@ -25,7 +25,7 @@ const userCtrl = {
             // Then create jsonwebtoken to authentication
             const accesstoken = createAccessToken({id: newUser._id})
             const refreshtoken = createRefreshToken({id: newUser._id})
-
+            
             res.cookie('refreshtoken', refreshtoken, {
                 httpOnly: true,
                 path: '/user/refresh_token',
@@ -74,6 +74,7 @@ const userCtrl = {
     },
     refreshToken: (req, res) =>{
         try {
+            console.log("request>>>>>>>>>>>.",req)
             const rf_token = req.cookies.refreshtoken;
             if(!rf_token) return res.status(400).json({msg: "Please Login or Register"})
 

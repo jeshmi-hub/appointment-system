@@ -2,6 +2,7 @@ import React, {useContext, useState, useEffect} from 'react';
 import { GlobalState } from '../../../GlobalState';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import {PayPalScriptProvider, PayPalButtons} from "@paypal/react-paypal-js";
 
 function cart() {
   const state = useContext(GlobalState)
@@ -20,7 +21,7 @@ function cart() {
     getTotal()
   },[appoint])
 
-  const addAppointment = async()=>{
+  const addAppointment = async(appoint)=>{
     await axios.patch('/user/addAppointment', {appoint}, {
       headers: {Authorization: token}
     })
@@ -53,7 +54,7 @@ function cart() {
       })
 
       setAppoint([...appoint])
-      addAppointment()
+      addAppointment(appoint)
     }
   }
 
@@ -86,7 +87,20 @@ function cart() {
       }
       <div className='total'>
         <h3>Total: $ {total}</h3>
-        <Link to="#!">Payment</Link>
+        <PayPalScriptProvider options={{"client-id": "Ab1AElhCHAVttG_TJ6lzllB7UFuWHK0U9-1FT8TwxS9UeVz-RjoDqC9Jj9BsdWQyD-yoD8YgLE74tczn"}}>
+          <PayPalButtons
+          createOrder={(data,actions)=>{
+            return actions.order.create({
+              purchase_units:[
+              {
+                amount: {
+                  value: "13.99",
+                },
+              },
+            ],
+            });
+          }}/>
+        </PayPalScriptProvider>
       </div>
     </div>
   )
