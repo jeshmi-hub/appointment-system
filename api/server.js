@@ -25,7 +25,7 @@ app.use('/api', require('./routes/upload'))
 app.use('/api', require('./routes/doctorRouter'))
 
 
-
+mongoose.set("strictQuery", false);
 mongoose.connect(
     process.env.DBCONNECTION,
     { useNewUrlParser: true, useUnifiedTopology: true },
@@ -38,6 +38,8 @@ mongoose.connect(
       }
     }
   );
+
+ 
 const port = process.env.PORT || 8000
 
 app.listen(port, () =>{

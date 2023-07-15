@@ -94,12 +94,18 @@ function cart() {
               purchase_units:[
               {
                 amount: {
-                  value: "13.99",
+                  value: total,
                 },
               },
             ],
             });
-          }}/>
+          }}
+          onApprove = {(data, actions)=>{
+            return actions.order.capture().then(function (details){
+              alert("Transcation completed by "+ details.payer.name.given_name);
+            })
+          }}
+          />
         </PayPalScriptProvider>
       </div>
     </div>
