@@ -23,6 +23,7 @@ app.use('/user', require('./routes/userRouter'))
 app.use('/api', require('./routes/doctorCategoryRouter'))
 app.use('/api', require('./routes/upload'))
 app.use('/api', require('./routes/doctorRouter'))
+app.use('/api', require('./routes/paymentRoute'))
 
 
 mongoose.set("strictQuery", false);

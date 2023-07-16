@@ -58,6 +58,19 @@ function cart() {
     }
   }
 
+  const tranSucess = async(payment)=>{
+    console.log(payment)
+    const {paymentID, address} = payment;
+
+    await axios.post('/api/payment', {appoint, paymentID, address}, {
+      headers: {Authorization: token}
+    })
+
+    setAppoint([])
+    addAppointment([])
+    alert("You have successfully placed an appointment.")
+  }
+
   if(appoint.length === 0){
     return <h2 style={{textAlign: "center", fontSize: "5rem"}}>Appointment Empty</h2>
   }
@@ -102,9 +115,11 @@ function cart() {
           }}
           onApprove = {(data, actions)=>{
             return actions.order.capture().then(function (details){
-              alert("Transcation completed by "+ details.payer.name.given_name);
+              tranSucess(details);
             })
           }}
+
+          
           />
         </PayPalScriptProvider>
       </div>

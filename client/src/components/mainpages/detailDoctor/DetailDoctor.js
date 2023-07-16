@@ -4,11 +4,13 @@ import { GlobalState } from "../../../GlobalState";
 import DoctorItem from "../utils/doctorItem/DoctorItem"
 
 
+
 function DetailDoctor() {
 
   const params = useParams()
   const state = useContext(GlobalState)
   const [doctors] = state.doctorsAPI.doctors
+  const addCart = state.userAPI.addAppointment
   const [detailDoctor, setDeatilDoctor] = useState([])
 
   useEffect(()=>{
@@ -36,7 +38,8 @@ function DetailDoctor() {
         <p>Available: {detailDoctor.available}</p>
         
         
-        <Link to="/appoint" className="cart">Appoint</Link>
+        <Link to="/appoint" className="cart"
+        onClick={()=> addCart(detailDoctor)}>Appoint</Link>
       </div>
     </div>
 
