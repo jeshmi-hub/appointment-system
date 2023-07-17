@@ -24,11 +24,9 @@ const paymentCtrl = {
             const newPayment = new Payments({
                 user_id: _id,name,email,cart
             })
-
            
 
             await newPayment.save();
-
             res.json({newPayment})
             
         }catch(err){
@@ -36,6 +34,8 @@ const paymentCtrl = {
         }
     }
 }
+ 
+
 
 
 

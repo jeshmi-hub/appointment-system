@@ -54,7 +54,7 @@ function cart() {
       })
 
       setAppoint([...appoint])
-      addAppointment(appoint)
+      addAppointment()
     }
   }
 
@@ -67,7 +67,7 @@ function cart() {
     })
 
     setAppoint([])
-    addAppointment([])
+    addAppointment()
     alert("You have successfully placed an appointment.")
   }
 

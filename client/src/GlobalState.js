@@ -1,6 +1,7 @@
 import React, {createContext, useState, useEffect} from 'react'
 import DoctorsAPI from './api/DoctorsAPI';
 import UserAPI from './api/UserAPI';
+import CategoryAPI from './api/CategoryAPI';
 import axios from 'axios';
 
 
@@ -26,7 +27,8 @@ export const DataProvider = ({children}) =>{
     const state = {
         token: [token, setToken],
         doctorsAPI: DoctorsAPI(),
-        userAPI: UserAPI(token)
+        userAPI: UserAPI(token), 
+        categoryAPI : CategoryAPI()
     }
    
 
