@@ -12,7 +12,8 @@ function CategoryAPI(token) {
     },[])
   return (
     <div>
-      
+      <label>Category</label>
+      <input type='text'></input>      
     </div>
   )
 }
