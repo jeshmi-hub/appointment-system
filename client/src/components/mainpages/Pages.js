@@ -7,16 +7,19 @@ import Register from "./auth/Register";
 import cart from './cart/cart';
 import NotFound from './utils/not_found/NotFound';
 import {GlobalState} from '../../GlobalState'
+import Categories from './categories/Categories';
 
 function Pages() {
   const state = useContext(GlobalState)
   const [isLogged] = state.userAPI.isLogged
+  const [isAdmin] = state.userAPI.isAdmin
   return (
     <Switch>
       <Route path="/" exact component={Doctors} />
       <Route path="/detail/:id" exact component={DetailDoctor} />
       <Route path="/login" exact component={isLogged ? NotFound : Login} />
       <Route path="/register" exact component={isLogged ? NotFound : Register} />
+      <Route path="/category" exact component= {isAdmin ? Categories: NotFound}/>
       <Route path="/appoint" exact component={cart}/>
     </Switch>
   );
