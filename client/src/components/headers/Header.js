@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, { useContext} from 'react'
 import { Link } from 'react-router-dom'
 import { GlobalState } from '../../GlobalState'
 import axios from 'axios'
@@ -27,7 +27,6 @@ function Header() {
  const loggedRouter = ()=>{
     return(
         <>
-        <li><Link to="/history">History</Link></li>
         <li><Link to="/" onClick={logoutUser}>Logout</Link></li>
         </>
     )

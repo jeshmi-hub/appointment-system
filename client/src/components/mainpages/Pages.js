@@ -8,6 +8,7 @@ import cart from './cart/cart';
 import NotFound from './utils/not_found/NotFound';
 import {GlobalState} from '../../GlobalState'
 import Categories from './categories/Categories';
+import AppointDoctor from './createDoctor/AppointDoctor';
 
 function Pages() {
   const state = useContext(GlobalState)
@@ -20,6 +21,7 @@ function Pages() {
       <Route path="/login" exact component={isLogged ? NotFound : Login} />
       <Route path="/register" exact component={isLogged ? NotFound : Register} />
       <Route path="/category" exact component= {isAdmin ? Categories: NotFound}/>
+      <Route path='/create_doctor' exact component= {isAdmin? AppointDoctor: NotFound}/>
       <Route path="/appoint" exact component={cart}/>
     </Switch>
   );
