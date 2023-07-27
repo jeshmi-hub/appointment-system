@@ -77,7 +77,7 @@ const doctorCtrl = {
             })
 
             await newDoctor.save()
-            res.json({msg: "Created a new doctor"})
+            return res.status(200).json({msg: "Created a new doctor"})
 
         }catch(err){
             return res.status(500).json({msg: err.message})

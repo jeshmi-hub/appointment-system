@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import {Link} from 'react-router-dom'
 import { GlobalState } from '../../../../GlobalState'
 
-function BtnRender({doctor}) {
+function BtnRender({doctor, deleteDoctor}) {
   const state = useContext(GlobalState)
   const [isAdmin] = state.userAPI.isAdmin
   const addAppointment = state.userAPI.addAppointment
@@ -13,7 +13,7 @@ function BtnRender({doctor}) {
       {
         isAdmin ? 
         <>
-        <Link id='btn_appoint' to="#!" >
+        <Link id='btn_appoint' to="#!" onClick={deleteDoctor}>
         Delete
       </Link>
       <Link id='btn_view' to={`/edit_doctor/${doctor._id}`}>

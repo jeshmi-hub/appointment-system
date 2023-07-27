@@ -21,7 +21,8 @@ function Pages() {
       <Route path="/login" exact component={isLogged ? NotFound : Login} />
       <Route path="/register" exact component={isLogged ? NotFound : Register} />
       <Route path="/category" exact component= {isAdmin ? Categories: NotFound}/>
-      <Route path='/create_doctor' exact component= {isAdmin? AppointDoctor: NotFound}/>
+      <Route path="/create_doctor" exact component= {isAdmin? AppointDoctor: NotFound}/>
+      <Route path="/edit_doctor/:id" exact component = {isAdmin ? AppointDoctor: NotFound}/>
       <Route path="/appoint" exact component={cart}/>
     </Switch>
   );
