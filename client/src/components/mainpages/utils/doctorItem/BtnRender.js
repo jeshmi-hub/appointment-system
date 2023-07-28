@@ -13,7 +13,7 @@ function BtnRender({doctor, deleteDoctor}) {
       {
         isAdmin ? 
         <>
-        <Link id='btn_appoint' to="#!" onClick={deleteDoctor}>
+        <Link id='btn_appoint' to="#!" onClick={()=>deleteDoctor(doctor._id, doctor.images.public_id)}>
         Delete
       </Link>
       <Link id='btn_view' to={`/edit_doctor/${doctor._id}`}>
